@@ -3,6 +3,7 @@ class Task:
         self.description = description
         self.completed = False
 
+
 class TaskManager:
     def __init__(self):
         self.tasks = []
@@ -27,11 +28,19 @@ class TaskManager:
         else:
             print("Invalid task index.")
 
+    def dump_task_file(self, task_index):
+        if 1 <= task_index <= len(self.tasks):
+            self.tasks[task_index - 1].completed = True
+            print("Dump the tasks")
+        else:
+            print("Invalid task index.")
+
     def write_tasks(self):
         """
         This method writes the list of tasks to a file
         """
         pass
+
 
 def main():
     task_manager = TaskManager()
@@ -59,6 +68,7 @@ def main():
             break
         else:
             print("Invalid choice. Please try again.")
+
 
 if __name__ == "__main__":
     main()
